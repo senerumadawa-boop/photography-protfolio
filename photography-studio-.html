@@ -1,0 +1,909 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>photography studio </title><style>/* ========================= */
+/* style.css */
+/* ========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#0f0f0f;
+  color:white;
+  overflow-x:hidden;
+}
+
+.dark{
+  background:#fff;
+  color:black;
+}
+
+/* LOADER */
+
+.loader{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.camera-loader{
+  font-size:80px;
+  color:orange;
+  animation:spin 2s infinite linear;
+}
+
+@keyframes spin{
+
+  100%{
+    transform:rotate(360deg);
+  }
+
+}
+
+/* HEADER */
+
+header{
+  background:rgba(0,0,0,0.8);
+  backdrop-filter:blur(10px);
+  padding:15px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:35px;
+  font-weight:bold;
+  color:orange;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin:0 12px;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:orange;
+}
+
+#darkBtn{
+  padding:10px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+  background:orange;
+}
+
+/* HERO */
+
+.hero{
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1400') center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+  position:relative;
+  text-align:center;
+}
+
+.hero-content h1{
+  font-size:70px;
+  letter-spacing:3px;
+}
+
+.hero-content p{
+  margin:20px 0;
+  font-size:22px;
+}
+
+.hero-btn{
+  background:orange;
+  color:black;
+  padding:15px 35px;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+/* SECTIONS */
+
+section{
+  padding:80px 8%;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:50px;
+  font-size:45px;
+  color:orange;
+}
+
+/* ABOUT */
+
+.about{
+  text-align:center;
+}
+
+.about p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+}
+
+/* SLIDER */
+
+.slider img{
+  width:100%;
+  height:600px;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+/* GALLERY */
+
+.gallery-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+
+.photo-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.photo-card img{
+  width:100%;
+  height:450px;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+.photo-card:hover img{
+  transform:scale(1.1);
+}
+
+.photo-overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  top:0;
+  left:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:0.4s;
+}
+
+.photo-card:hover .photo-overlay{
+  opacity:1;
+}
+
+.photo-overlay h3{
+  font-size:30px;
+}
+
+/* SERVICES */
+
+.service-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.service-card{
+  background:#1b1b1b;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  transition:0.4s;
+}
+
+.service-card:hover{
+  transform:translateY(-10px);
+}
+
+.service-card i{
+  font-size:50px;
+  color:orange;
+  margin-bottom:20px;
+}
+
+/* BEFORE AFTER */
+
+.before-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.before-container img{
+  width:100%;
+  border-radius:20px;
+  height:500px;
+  object-fit:cover;
+}
+
+/* VIDEO */
+
+.video-container iframe{
+  width:100%;
+  height:550px;
+  border:none;
+  border-radius:20px;
+}
+
+/* REVIEWS */
+
+.review-box{
+  background:#1a1a1a;
+  padding:35px;
+  border-radius:20px;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+/* BOOKING */
+
+.booking form{
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.booking input,
+.booking textarea,
+.booking button{
+  padding:15px;
+  border:none;
+  border-radius:10px;
+}
+
+.booking textarea{
+  height:150px;
+}
+
+.booking button{
+  background:orange;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* INSTAGRAM */
+
+.instagram{
+  text-align:center;
+}
+
+.instagram a{
+  color:orange;
+  font-size:28px;
+  text-decoration:none;
+}
+
+/* CONTACT */
+
+.contact{
+  background:#111;
+  text-align:center;
+}
+
+.contact a{
+  display:inline-block;
+  margin-top:20px;
+  background:orange;
+  color:black;
+  padding:15px 35px;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+  background:black;
+  text-align:center;
+  padding:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero-content h1{
+    font-size:40px;
+  }
+
+  .slider img{
+    height:350px;
+  }
+
+  .before-container{
+    grid-template-columns:1fr;
+  }
+
+}</style></head><body><!-- ========================= -->
+<!-- index.html -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>Shadow Lens Photography</title>
+
+  <link rel="stylesheet"
+  href="style.css">
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div class="loader">
+
+  <div class="camera-loader">
+
+    <i class="fa-solid fa-camera"></i>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="logo">
+
+    ShadowLens
+
+  </div>
+
+  <nav>
+
+    <a href="#home">Home</a>
+
+    <a href="#gallery">Gallery</a>
+
+    <a href="#services">Services</a>
+
+    <a href="#reviews">Reviews</a>
+
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+  <div class="header-icons">
+
+    <button id="darkBtn">
+
+      <i class="fa-solid fa-moon"></i>
+
+    </button>
+
+  </div>
+
+</header>
+
+
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+
+    <h1>CAPTURE YOUR MOMENTS</h1>
+
+    <p>
+
+      Wedding • Portrait • Cinematic • Nature Photography
+
+    </p>
+
+    <a href="#gallery"
+    class="hero-btn">
+
+      Explore Gallery
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- ABOUT -->
+
+<section class="about">
+
+  <h2>About Me</h2>
+
+  <p>
+
+    Professional Photographer & Cinematic Creator.
+    Capturing emotional and unforgettable moments
+    with creativity and premium quality editing.
+
+  </p>
+
+</section>
+
+
+
+
+
+<!-- PHOTO SLIDER -->
+
+<section class="slider-section">
+
+  <h2>Featured Shots</h2>
+
+  <div class="slider">
+
+    <img id="sliderImage"
+    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400">
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+  <h2>Photography Gallery</h2>
+
+  <div class="gallery-container">
+
+
+
+    <!-- IMAGE 1 -->
+
+    <div class="photo-card">
+
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000">
+
+      <div class="photo-overlay">
+
+        <h3>Wedding Shoot</h3>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- IMAGE 2 -->
+
+    <div class="photo-card">
+
+      <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000">
+
+      <div class="photo-overlay">
+
+        <h3>Portrait Photography</h3>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- IMAGE 3 -->
+
+    <div class="photo-card">
+
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1000">
+
+      <div class="photo-overlay">
+
+        <h3>Nature Shot</h3>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- IMAGE 4 -->
+
+    <div class="photo-card">
+
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000">
+
+      <div class="photo-overlay">
+
+        <h3>Cinematic Couple</h3>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- IMAGE 5 -->
+
+    <div class="photo-card">
+
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000">
+
+      <div class="photo-overlay">
+
+        <h3>Fashion Portrait</h3>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- IMAGE 6 -->
+
+    <div class="photo-card">
+
+      <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000">
+
+      <div class="photo-overlay">
+
+        <h3>Drone Photography</h3>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+  <h2>Photography Services</h2>
+
+  <div class="service-container">
+
+
+
+    <div class="service-card">
+
+      <i class="fa-solid fa-ring"></i>
+
+      <h3>Wedding Shoot</h3>
+
+      <p>
+        Full cinematic wedding coverage.
+      </p>
+
+    </div>
+
+
+
+    <div class="service-card">
+
+      <i class="fa-solid fa-user"></i>
+
+      <h3>Portrait Shoot</h3>
+
+      <p>
+        Professional portrait photography.
+      </p>
+
+    </div>
+
+
+
+    <div class="service-card">
+
+      <i class="fa-solid fa-video"></i>
+
+      <h3>Cinematic Reels</h3>
+
+      <p>
+        Premium cinematic video editing.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- BEFORE AFTER -->
+
+<section class="before-after">
+
+  <h2>Before / After Editing</h2>
+
+  <div class="before-container">
+
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000">
+
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000">
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- VIDEO -->
+
+<section class="video-section">
+
+  <h2>Cinematic Video</h2>
+
+  <div class="video-container">
+
+    <iframe
+    src="https://www.youtube.com/embed/ScMzIvxBSi4"
+    allowfullscreen>
+    </iframe>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- REVIEWS -->
+
+<section class="reviews" id="reviews">
+
+  <h2>Client Reviews</h2>
+
+  <div class="review-box">
+
+    <p>
+
+      "Amazing Photography & Cinematic Editing 🔥"
+
+    </p>
+
+    <h4>- Kavindi</h4>
+
+  </div>
+
+  <div class="review-box">
+
+    <p>
+
+      "Professional Work & Fast Delivery ❤️"
+
+    </p>
+
+    <h4>- Ishan</h4>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- BOOKING -->
+
+<section class="booking">
+
+  <h2>Book Your Shoot</h2>
+
+  <form>
+
+    <input type="text"
+    placeholder="Your Name">
+
+    <input type="email"
+    placeholder="Your Email">
+
+    <input type="text"
+    placeholder="Event Type">
+
+    <textarea
+    placeholder="Your Message"></textarea>
+
+    <button type="submit">
+
+      Book Now
+
+    </button>
+
+  </form>
+
+</section>
+
+
+
+
+
+<!-- INSTAGRAM -->
+
+<section class="instagram">
+
+  <h2>Instagram Feed</h2>
+
+  <a href="#">
+
+    @ShadowLensPhotography
+
+  </a>
+
+</section>
+
+
+
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <h2>Contact</h2>
+
+  <p>
+
+    WhatsApp : 0776874655
+
+  </p>
+
+  <a href="https://wa.me/94776874655">
+
+    Chat On WhatsApp
+
+  </a>
+
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+
+    © 2026 Shadow Lens Photography
+
+  </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html><script>// =========================
+// script.js
+// =========================
+
+// LOADER
+
+window.onload = ()=>{
+
+  setTimeout(()=>{
+
+    document.querySelector(".loader")
+    .style.display = "none";
+
+  },2000);
+
+};
+
+// DARK MODE
+
+let darkBtn =
+document.getElementById("darkBtn");
+
+darkBtn.onclick = ()=>{
+
+  document.body.classList.toggle("dark");
+
+};
+
+// IMAGE SLIDER
+
+let images = [
+
+"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400",
+
+"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400",
+
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400"
+
+];
+
+let index = 0;
+
+setInterval(()=>{
+
+  index++;
+
+  if(index >= images.length){
+
+    index = 0;
+
+  }
+
+  document.getElementById("sliderImage")
+  .src = images[index];
+
+},3000);</script></body></html>
